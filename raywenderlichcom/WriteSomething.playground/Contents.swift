@@ -202,24 +202,24 @@ default:
 
 //properties: Computer properties ({get{}set{}})& store properties observers({didSet{}}) & static var & lazy var with init()
 
-//struct Temperature {
-//    var degreesF: Double {
-//        didSet {
-//            if degreesF > 100 {
-//                print("Too hot")
-//            }
-//        }
-//    }
-//    var degreesC: Double {
-//        get {
-//            return (degreesF - 32)/1.8
-//        }
-//
-//        set {
-//            degreesF = newValue * 1.8 + 32
-//        }
-//    }
-//}
+struct Temperature {
+    var degreesF: Double {
+        didSet {
+            if degreesF > 100 {
+                print("Too hot")
+            }
+        }
+    }
+    var degreesC: Double {
+        get {
+            return (degreesF - 32)/1.8
+        }
+
+        set {
+            degreesF = newValue * 1.8 + 32
+        }
+    }
+}
 //
 //var temp = Temperature(degreesF: 200)
 //print(temp.degreesC)
