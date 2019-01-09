@@ -202,24 +202,24 @@ default:
 
 //properties: Computer properties ({get{}set{}})& store properties observers({didSet{}}) & static var & lazy var with init()
 
-struct Temperature {
-    var degreesF: Double {
-        didSet {
-            if degreesF > 100 {
-                print("Too hot")
-            }
-        }
-    }
-    var degreesC: Double {
-        get {
-            return (degreesF - 32)/1.8
-        }
-
-        set {
-            degreesF = newValue * 1.8 + 32
-        }
-    }
-}
+//struct Temperature {
+//    var degreesF: Double {
+//        didSet {
+//            if degreesF > 100 {
+//                print("Too hot")
+//            }
+//        }
+//    }
+//    var degreesC: Double {
+//        get {
+//            return (degreesF - 32)/1.8
+//        }
+//
+//        set {
+//            degreesF = newValue * 1.8 + 32
+//        }
+//    }
+//}
 //
 //var temp = Temperature(degreesF: 200)
 //print(temp.degreesC)
@@ -347,41 +347,41 @@ struct Temperature {
 //print(std.grade.point)
 
 //initializar: init, required init, convenience init
-class Animal {
-    var name: String
-    
-    required init(name: String) {
-        self.name = name
-    }
-    
-    func speak() {
-        
-    }
-}
-
-class Dog: Animal {
-    var numTricksLearned: Int
-    
-    required init(name: String) {
-        self.numTricksLearned = 0
-        super.init(name: name)
-        speak()
-    }
-    
-    init(name: String, numTricksLearned: Int) {
-        self.numTricksLearned = numTricksLearned
-        super.init(name: name)
-        speak()
-    }
-    
-    override func speak() {
-        print("Bow")
-    }
-}
-
-extension Dog {
-    convenience init() {
-        self.init(name: "Puppy", numTricksLearned: 5)
-    }
-}
+//class Animal {
+//    var name: String
+//
+//    required init(name: String) {
+//        self.name = name
+//    }
+//
+//    func speak() {
+//
+//    }
+//}
+//
+//class Dog: Animal {
+//    var numTricksLearned: Int
+//
+//    required init(name: String) {
+//        self.numTricksLearned = 0
+//        super.init(name: name)
+//        speak()
+//    }
+//
+//    init(name: String, numTricksLearned: Int) {
+//        self.numTricksLearned = numTricksLearned
+//        super.init(name: name)
+//        speak()
+//    }
+//
+//    override func speak() {
+//        print("Bow")
+//    }
+//}
+//
+//extension Dog {
+//    convenience init() {
+//        self.init(name: "Puppy", numTricksLearned: 5)
+//    }
+//}
 
