@@ -157,29 +157,92 @@ import Foundation
 
 // #205 Isomorphic Strings
 
-class Solution {
-    func isIsomorphic(_ s: String, _ t: String) -> Bool {
-        let str1 = Array(s)
-        let str2 = Array(t)
+//class Solution {
+//    func isIsomorphic(_ s: String, _ t: String) -> Bool {
+//        let str1 = Array(s)
+//        let str2 = Array(t)
+//
+//        var map = [Character : Character]()
+//
+//        for i in 0..<str1.count {
+//            // check if has string 1 map
+//            if let cache = map[str1[i]] {
+//                // if don't match
+//                if cache != str2[i] {
+//                    return false
+//                }
+//            } else if map.values.contains(str2[i]) {
+//                // if don't have string 1 char, but already has string 2's
+//                return false
+//            } else {
+//                // record map
+//                map[str1[i]] = str2[i]
+//            }
+//        }
+//
+//        return true
+//    }
+//}
 
-        var map = [Character : Character]()
+//public class ListNode {
+//    public var val: Int
+//    public var next: ListNode?
+//    public init(_ val: Int) {
+//        self.val = val
+//        self.next = nil
+//    }
+// }
+//
+//class Solution {
+//    func reverseList(_ head: ListNode?) -> ListNode? {
+//        if(head == nil || head?.next == nil) {
+//            return head;
+//        }
+//        var node = head;
+//        var prev: ListNode?;
+//
+//        while node != nil {
+//            let willPre = node?.next;
+//            node?.next = prev;
+//            prev = node;
+//            node = willPre;
+//        }
+//        return prev;
+//    }
+//}
+
+//class Solution {
+//    func containsDuplicate(_ nums: [Int]) -> Bool {
+//        if Set(nums).count != nums.count {
+//            return false;
+//        }
+//        
+//        return true
+//    }
+//}
+
+class Solution {
+    func containsNearbyDuplicate(_ nums: [Int], _ k: Int) -> Bool {
+        if (Set(nums).count == nums.count) {
+            return false
+        }
         
-        for i in 0..<str1.count {
-            // check if has string 1 map
-            if let cache = map[str1[i]] {
-                // if don't match
-                if cache != str2[i] {
-                    return false
+        var map = [Int: Int]()
+        
+        for i in 0..<nums.count {
+            if map.keys.contains(nums[i]) {
+                let diff = i - map[nums[i]]!
+                if diff <= k {
+                    return true
+                } else {
+                    map[nums[i]] = i
                 }
-            } else if map.values.contains(str2[i]) {
-                // if don't have string 1 char, but already has string 2's
-                return false
+                
             } else {
-                // record map
-                map[str1[i]] = str2[i]
+                map[nums[i]] = i
             }
         }
         
-        return true
+        return false
     }
 }
